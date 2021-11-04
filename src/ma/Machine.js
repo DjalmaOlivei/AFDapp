@@ -11,6 +11,8 @@ export function Machine(props){
     let [doce, setDoce] = useState('')
     let [p, setP] = useState('')
     let [est, setEst] = useState(0)
+    let [troco, setTroco] = useState()
+    
     //const input = "11528";
 
 /*for(let i = 0; i < input.length; i++){
@@ -84,9 +86,10 @@ const handleC1 = () => {
 }
 
 const handleCA = () =>{
-afd.consumir('c')
-setDoce('A')
-setValor(afd.getTroco()-6)
+afd.consumir('a')
+setDoce('doce: A')
+setTroco("Troco: "+(afd.getTroco()-6))
+setValor(0)
 setP(afd.getPalavra())
 setEst(afd.getEstado())
 setA(false)
@@ -100,8 +103,9 @@ if(afd.getEstado<0){
 
 const handleCB = () =>{
 afd.consumir('b')
-setDoce('B')
-setValor(afd.getTroco()-7)
+setDoce('doce: B')
+setTroco("Troco: "+(afd.getTroco()-7))
+setValor(0)
 setP(afd.getPalavra())
 setEst(afd.getEstado())
 setA(false)
@@ -117,8 +121,9 @@ if(afd.getEstado<0){
 
 const handleCC = () =>{
 afd.consumir('c') 
-setDoce('C')
-setValor(afd.getTroco()-8)
+setDoce('doce: C')
+setTroco("Troco: "+(afd.getTroco()-8))
+setValor(0)
 setP(afd.getPalavra())
 setEst(afd.getEstado())
 setA(false)
@@ -145,9 +150,10 @@ if(afd.getEstado<0){
                 <button onClick={b ? handleCB :()=>{}} style={b ? styleOn : styleOff}>b</button>
                 <button onClick={a ? handleCA :()=>{}} style={a ? styleOn : styleOff}>a</button>
             </div>
-            <p>doce:{doce}</p>
             <p>palavra:{p}</p>
             <p>estado:{est}</p>
+            <p>{doce}</p>
+            <p>{troco}</p>
         </div>
     )
 
