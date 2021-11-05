@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {Machine} from './ma/Machine.js'
+import {candyMachine} from './ma/candyMachine.js'
 
 function App() {
 

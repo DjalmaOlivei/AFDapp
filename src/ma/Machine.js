@@ -28,6 +28,7 @@ const restart = () =>{
     setDoce('')
     setP('')
     setEst(0)
+    setTroco('')
     setA(false)
     setB(false)
     setC(false)
@@ -150,13 +151,15 @@ if(afd.getEstado<0){
                 <button onClick={b ? handleCB :()=>{}} style={b ? styleOn : styleOff}>b</button>
                 <button onClick={a ? handleCA :()=>{}} style={a ? styleOn : styleOff}>a</button>
             </div>
-            <p>palavra:{p}</p>
+            
             <p>estado:{est}</p>
             <p>{doce}</p>
             <p>{troco}</p>
         </div>
     )
-
+/*
+<p>palavra:{p}</p>
+*/
 }
 
 export default Machine
