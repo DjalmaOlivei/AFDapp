@@ -138,28 +138,69 @@ if(afd.getEstado<0){
     
 
 
-    return (
+    return (<div>
+
+    <div style={{
+            position:'absolute',
+            top: '0%',
+            left: '30%',
+            background: 'orange',
+            width: '30%',
+            height: '80%',
+            padding: "20px"
+            }}> 
+
+
         <div>
-            valor:{valor}
-            <div>
-                <button onClick={handleC5} style={styleOn}>5</button>
-                <button onClick={handleC2} style={styleOn}>2</button>
-                <button onClick={handleC1} style={styleOn}>1</button>
-            </div>
-            <div>
-                <button onClick={c ? handleCC :()=>{}} style={c ? styleOn : styleOff}>c</button>
-                <button onClick={b ? handleCB :()=>{}} style={b ? styleOn : styleOff}>b</button>
-                <button onClick={a ? handleCA :()=>{}} style={a ? styleOn : styleOff}>a</button>
+                    
+            <div style={{
+                width: "80%",
+                height: 462,
+                background: 'grey',
+                float: 'left'
+            }}>
+
             </div>
             
-            <p>estado:{est}</p>
-            <p>{doce}</p>
-            <p>{troco}</p>
+            <div style={{float: 'right'}}>
+                
+                <div style={{
+                    color: "green",
+                    background: 'black'
+                    }}>
+                    valor : {valor}
+                </div>
+
+                <div>
+                    <button onClick={handleC5} style={styleOn}>5</button>
+                    <button onClick={handleC2} style={styleOn}>2</button>
+                    <button onClick={handleC1} style={styleOn}>1</button>
+                </div>
+
+                <div>
+                    <button onClick={c ? handleCC :()=>{}} style={c ? styleOn : styleOff}>c</button>
+                    <button onClick={b ? handleCB :()=>{}} style={b ? styleOn : styleOff}>b</button>
+                    <button onClick={a ? handleCA :()=>{}} style={a ? styleOn : styleOff}>a</button>
+                </div>
+                
+            </div>
+
+
         </div>
-    )
+
+        
+
+    </div>
+
+        <div style={{}}>
+        <p>estado:{est}</p>
+        <p>{doce}</p>
+        <p>{troco}</p>
+        </div>
+
+    </div>)
 /*
 <p>palavra:{p}</p>
 */
 }
 
-export default Machine
