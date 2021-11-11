@@ -22,9 +22,8 @@ export function Machine(props){
 const styleOn = { background: '#ede6e6', color: '#575454' }
 const styleOff = { background: '#575454', color: '#ede6e6' }
      
-const restart = () =>{
-    setAfd(new AFN)
-    setValor(0)
+const restart = (newValue) =>{
+    let newAfd = new AFN();
     setDoce('')
     setP('')
     setEst(0)
@@ -32,11 +31,15 @@ const restart = () =>{
     setA(false)
     setB(false)
     setC(false)
+    newAfd.consumir(newValue)
+    setValor(newAfd.getTroco())
+    setAfd(newAfd)
+    
 }
 
 const handleC5 = () => {
     if(afd.consumir('5')<0){
-        restart()
+        restart('5')
         return
     }
     if(afd.getTroco() > 5) {
@@ -54,7 +57,7 @@ const handleC5 = () => {
 
 const handleC2 = () => {
     if(afd.consumir('2')<0){
-        restart()
+        restart('2')
         return
     }
     if(afd.getTroco() > 5) {
@@ -71,7 +74,7 @@ const handleC2 = () => {
 
 const handleC1 = () => {
     if(afd.consumir('1')<0){
-        restart()
+        restart('1')
         return
     }
     if(afd.getTroco() > 5) {
@@ -88,8 +91,33 @@ const handleC1 = () => {
 
 const handleCA = () =>{
 afd.consumir('a')
-setDoce('doce: A')
-setTroco("Troco: "+(afd.getTroco()-6))
+
+setDoce((<div onClick={() => {setDoce(''); }}
+    style={{            
+    width: '50px',
+    height: '50px',
+    background: 'red',
+    position: 'absolute',
+    //top: '45%',
+    //left: '30%',
+    bottom: '15%',
+    right: '30%'
+    }}><h3 style={{textAlign: 'center'}}>A</h3></div>
+       ))
+
+setTroco(<div>
+    <p style={{floating: 'left',
+               height:'10px'}}>Troco:</p>
+     <div onClick={() => {setTroco('')}} style={{ 
+                   background : "#008a12",
+                   width: '50px',
+                   height: '20px',
+                   marginLeft: 'auto',
+                   marginRight: 'auto'
+                   }}><p style={{textAlign: 'center'}}>R${afd.getTroco()-6}</p>
+     </div>
+     </div>)
+
 setValor(0)
 setP(afd.getPalavra())
 setEst(afd.getEstado())
@@ -104,8 +132,35 @@ if(afd.getEstado<0){
 
 const handleCB = () =>{
 afd.consumir('b')
-setDoce('doce: B')
-setTroco("Troco: "+(afd.getTroco()-7))
+setDoce((<div onClick={() => {setDoce('')}} 
+    style={{            
+    width: '50px',
+    height: '50px',
+    background: 'chocolate',
+    position: 'absolute',
+    //top: '45%',
+    //left: '30%',
+    bottom: '15%',
+    right: '30%'
+    }}><h3 style={{textAlign: 'center'}}>B</h3></div>))
+
+setTroco(<div>
+    <p style={{floating: 'left',
+               height:'10px'}}>Troco:</p>
+     <div onClick={() => {setTroco('')}} style={{ 
+                   background : "#008a12",
+                   width: '50px',
+                   height: '20px',
+                   marginLeft: 'auto',
+                   marginRight: 'auto',
+                   //top: '45%',
+                  //left: '30%',
+                  bottom: '15%',
+                  right: '30%'
+                   }}><p style={{textAlign: 'center'}}>R${afd.getTroco()-7}</p>
+     </div>
+     </div>)
+
 setValor(0)
 setP(afd.getPalavra())
 setEst(afd.getEstado())
@@ -122,8 +177,33 @@ if(afd.getEstado<0){
 
 const handleCC = () =>{
 afd.consumir('c') 
-setDoce('doce: C')
-setTroco("Troco: "+(afd.getTroco()-8))
+
+setDoce((<div onClick={() => {setDoce('')}}
+                style={{            
+                width: '50px',
+                height: '50px',
+                background: 'purple',
+                position: 'absolute',
+                //top: '45%',
+                //left: '30%',
+                bottom: '15%',
+                right: '30%'
+                }}>
+                <h3 style={{textAlign: 'center'}}>C</h3>
+          </div>))
+
+setTroco(<div>
+        <p style={{floating: 'left',
+                   height:'10px'}}>Troco:</p>
+         <div onClick={() => {setTroco('')}} style={{ 
+                       background : "#008a12",
+                       width: '50px',
+                       height: '20px',
+                       marginLeft: 'auto',
+                       marginRight: 'auto'
+                       }}><p style={{textAlign: 'center'}}>R${afd.getTroco()-8}</p>
+         </div>
+         </div>)
 setValor(0)
 setP(afd.getPalavra())
 setEst(afd.getEstado())
@@ -156,32 +236,121 @@ if(afd.getEstado<0){
             <div style={{
                 width: "80%",
                 height: 462,
-                background: 'grey',
+                
                 float: 'left'
             }}>
-
+                
             </div>
             
-            <div style={{float: 'right'}}>
+            <div >
                 
                 <div style={{
-                    color: "green",
-                    background: 'black'
+                   position:'absolute',
+                   float: 'left',
+                    width: '60%',
+                    height: '420px',
+                    background: 'grey',
+                    padding: "20px",
+                    borderRadius : '25px'
                     }}>
-                    valor : {valor}
+                        <div>
+                            <div style={{
+                            
+                            width: '45%',
+                            height: '100px',
+                            background: 'red',
+                            marginLeft: 'auto',
+                            marginRight: 'auto'
+                             }}>
+                            <h2 style={{textAlign: 'center'}}>A</h2>
+                            <h3 style={{textAlign: 'center'}}>R$6,00</h3>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div style={{
+                            
+                            width: '45%',
+                            height: '100px',
+                            background: 'chocolate',
+                            marginLeft: 'auto',
+                            marginRight: 'auto'
+                            }}>
+                            <h2 style={{textAlign: 'center'}}>B</h2>
+                            <h3 style={{textAlign: 'center'}}>R$7,00</h3>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div style={{
+                            
+                            
+                            width: '45%',
+                            height: '100px',
+                            background: 'purple',
+                            marginLeft: 'auto',
+                            marginRight: 'auto'
+                            }}>
+                            <h2 style={{textAlign: 'center'}}>C</h2>
+                            <h3 style={{textAlign: 'center'}}>R$8,00</h3>
+                            </div>
+                        </div>
+
                 </div>
 
-                <div>
-                    <button onClick={handleC5} style={styleOn}>5</button>
-                    <button onClick={handleC2} style={styleOn}>2</button>
-                    <button onClick={handleC1} style={styleOn}>1</button>
+                <div >
+
+                        <div style={{height: '30px'}}></div>
+                        
+                        <div style={{
+                            
+                            float: 'right',
+                            color: "green",
+                            width: '75px',
+                            height: '25px',
+                            background: 'black'
+                            }}>
+                           valor : {valor}
+                        </div>
+                        
+                        <div style={{float: 'left', padding: "7px"}}>
+                        
+                            <div><button onClick={handleC1} style={styleOn}>1</button></div>
+                            <div><button onClick={handleC2} style={styleOn}>2</button></div>
+                            <div><button onClick={handleC5} style={styleOn}>5</button></div>
+                        </div>
+                        
+                        <div style={{float: 'right', padding: "7px"}}>
+                            <div><button onClick={a ? handleCA :()=>{}} style={a ? styleOn : styleOff}>a</button></div>
+                            <div><button onClick={b ? handleCB :()=>{}} style={b ? styleOn : styleOff}>b</button></div>
+                            <div><button onClick={c ? handleCC :()=>{}} style={c ? styleOn : styleOff}>c</button></div>
+
+
+                        </div>
+                
+                </div>
+                
+                <div style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    right: 0,
+                    padding: "20px"
+                    }}>
+                            <div style={{ background: 'yellow',
+                                          width : '60px',
+                                          height: '50px'}}>
+                                          {troco}</div>
+                    <div style={{height: '10px'}}></div>
+                    <div style={{ width: '70px', 
+                                  height: '80px', 
+                                  background:'white',
+                                  }}>
+                            {doce}
+                    </div>
+                    
                 </div>
 
-                <div>
-                    <button onClick={c ? handleCC :()=>{}} style={c ? styleOn : styleOff}>c</button>
-                    <button onClick={b ? handleCB :()=>{}} style={b ? styleOn : styleOff}>b</button>
-                    <button onClick={a ? handleCA :()=>{}} style={a ? styleOn : styleOff}>a</button>
-                </div>
+                
                 
             </div>
 
@@ -192,15 +361,7 @@ if(afd.getEstado<0){
 
     </div>
 
-        <div style={{}}>
-        <p>estado:{est}</p>
-        <p>{doce}</p>
-        <p>{troco}</p>
-        </div>
-
     </div>)
-/*
-<p>palavra:{p}</p>
-*/
+
 }
 
