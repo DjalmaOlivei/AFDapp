@@ -24,6 +24,7 @@ const styleOff = { background: '#575454', color: '#ede6e6' }
      
 const restart = (newValue) =>{
     let newAfd = new AFN();
+    //console.log(p)
     setDoce('')
     setP('')
     setEst(0)
@@ -33,11 +34,16 @@ const restart = (newValue) =>{
     setC(false)
     newAfd.consumir(newValue)
     setValor(newAfd.getTroco())
+    setP(newAfd.getPalavra())
+    setEst(newAfd.getEstado())
+    //setTroco(newAfd.getTroco())
+    console.log(newAfd.getPalavra()+' | '+newAfd.getEstado())
     setAfd(newAfd)
-    
+   
 }
 
 const handleC5 = () => {
+    
     if(afd.consumir('5')<0){
         restart('5')
         return
@@ -52,10 +58,11 @@ const handleC5 = () => {
     setValor(afd.getTroco())
     setP(afd.getPalavra())
     setEst(afd.getEstado())
-
+    console.log(afd.getPalavra()+' | '+afd.getEstado())
 }
 
 const handleC2 = () => {
+    
     if(afd.consumir('2')<0){
         restart('2')
         return
@@ -70,9 +77,11 @@ const handleC2 = () => {
     setValor(afd.getTroco())
     setP(afd.getPalavra())
     setEst(afd.getEstado())
+    console.log(afd.getPalavra()+' | '+afd.getEstado())
 }
 
 const handleC1 = () => {
+    
     if(afd.consumir('1')<0){
         restart('1')
         return
@@ -87,9 +96,11 @@ const handleC1 = () => {
     setValor(afd.getTroco())
     setP(afd.getPalavra())
     setEst(afd.getEstado())
+    console.log(afd.getPalavra()+' | '+afd.getEstado())
 }
 
 const handleCA = () =>{
+    
 afd.consumir('a')
 
 setDoce((<div onClick={() => {setDoce(''); }}
@@ -120,10 +131,12 @@ setTroco(<div>
 
 setValor(0)
 setP(afd.getPalavra())
+
 setEst(afd.getEstado())
 setA(false)
 setB(false)
 setC(false)
+console.log(afd.getPalavra()+' | '+afd.getEstado())
 if(afd.getEstado<0){
     restart()
     return
@@ -131,7 +144,9 @@ if(afd.getEstado<0){
 }
 
 const handleCB = () =>{
+    
 afd.consumir('b')
+
 setDoce((<div onClick={() => {setDoce('')}} 
     style={{            
     width: '50px',
@@ -167,6 +182,7 @@ setEst(afd.getEstado())
 setA(false)
 setB(false)
 setC(false)
+console.log(afd.getPalavra()+' | '+afd.getEstado())
 if(afd.getEstado<0){
     restart()
     return
@@ -176,6 +192,7 @@ if(afd.getEstado<0){
 
 
 const handleCC = () =>{
+    
 afd.consumir('c') 
 
 setDoce((<div onClick={() => {setDoce('')}}
@@ -210,6 +227,7 @@ setEst(afd.getEstado())
 setA(false)
 setB(false)
 setC(false)
+console.log(afd.getPalavra()+' | '+afd.getEstado())
 if(afd.getEstado<0){
     restart()
     return
@@ -358,9 +376,10 @@ if(afd.getEstado<0){
         </div>
 
         
-
+                                  
     </div>
-
+<p>Palavra: {p}</p>
+<p>Estado : {est}</p>
     </div>)
 
 }
