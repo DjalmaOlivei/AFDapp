@@ -266,7 +266,7 @@ if(afd.getEstado<0){
                    position:'absolute',
                    float: 'left',
                     width: '60%',
-                    height: '420px',
+                    height: '380px',
                     background: 'grey',
                     padding: "20px",
                     borderRadius : '25px'
