@@ -378,8 +378,8 @@ if(afd.getEstado<0){
         
                                   
     </div>
-<p>Palavra: {p}</p>
-<p>Estado : {est}</p>
+<p>Palavra:# {p}</p>
+<p>Estado :# {est}</p>
     </div>)
 
 }
