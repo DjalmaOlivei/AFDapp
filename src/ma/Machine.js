@@ -23,7 +23,7 @@ const styleOn = { background: '#ede6e6', color: '#575454' }
 const styleOff = { background: '#575454', color: '#ede6e6' }
      
 const restart = (newValue) =>{
-    let newAfd = new AFN();
+    let newAfd = new AFN()
     //console.log(p)
     setDoce('')
     setP('')
@@ -40,6 +40,19 @@ const restart = (newValue) =>{
     console.log(newAfd.getPalavra()+' | '+newAfd.getEstado())
     setAfd(newAfd)
    
+}
+
+const giveUp = () => {
+    let newAfd = new AFN()
+    setDoce('')
+    setP('')
+    setEst(0)
+    //setTroco('')
+    setA(false)
+    setB(false)
+    setC(false)
+    setAfd(newAfd)
+
 }
 
 const handleC5 = () => {
@@ -234,7 +247,31 @@ if(afd.getEstado<0){
 }
 }
     
-
+const handleCE = () =>{
+    
+    setTroco(<div>
+        <p style={{floating: 'left',
+                   height:'10px'}}>Troco:</p>
+         <div onClick={() => {setTroco('')}} style={{ 
+                       background : "#008a12",
+                       width: '50px',
+                       height: '20px',
+                       marginLeft: 'auto',
+                       marginRight: 'auto'
+                       }}><p style={{textAlign: 'center'}}>R${afd.getTroco()-0}</p>
+         </div>
+         </div>)
+    setValor(0)
+    setP(afd.getPalavra())
+    setEst(afd.getEstado())
+    setA(false)
+    setB(false)
+    setC(false)
+    console.log(afd.getPalavra()+' | '+afd.getEstado())
+        giveUp()
+        return
+    
+    }
 
     return (<div>
 
@@ -358,6 +395,7 @@ if(afd.getEstado<0){
                                     <div><button onClick={a ? handleCA :()=>{}} style={a ? styleOn : styleOff}>a</button></div>
                                     <div><button onClick={b ? handleCB :()=>{}} style={b ? styleOn : styleOff}>b</button></div>
                                     <div><button onClick={c ? handleCC :()=>{}} style={c ? styleOn : styleOff}>c</button></div>
+                                    <div><button onClick={ valor > 0 ? handleCE :()=>{}} style={valor > 0 ? styleOn : styleOff}>troco</button></div>
                                 </div>
                         </div>
                 </div>
