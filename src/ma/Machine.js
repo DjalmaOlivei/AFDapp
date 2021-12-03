@@ -239,12 +239,14 @@ if(afd.getEstado<0){
     return (<div>
 
     <div style={{
+            display: 'block',
+            alignitems: 'center',
             position:'absolute',
             top: '0%',
-            left: '30%',
+            left: '0%',
             background: 'orange',
-            width: '30%',
-            height: '80%',
+            width: '350px',
+            height: '510px',
             padding: "20px"
             }}> 
 
@@ -252,10 +254,10 @@ if(afd.getEstado<0){
         <div>
                     
             <div style={{
-                width: "80%",
-                height: 462,
+                //width: "80%",
+               // height: 462,
                 
-                float: 'left'
+               // float: 'left'
             }}>
                 
             </div>
@@ -265,7 +267,7 @@ if(afd.getEstado<0){
                 <div style={{
                    position:'absolute',
                    float: 'left',
-                    width: '60%',
+                    width: '50%',
                     height: '380px',
                     background: 'grey',
                     padding: "20px",
@@ -318,10 +320,17 @@ if(afd.getEstado<0){
 
                 <div >
 
-                        <div style={{height: '30px'}}></div>
+                        
+                        <div style={{position: 'absolute',
+                                      top: '25px',
+                                      right: '16px'}}>
+                        <div style={{ //position: 'absolute',
+                                        top: '8px',
+                                        right: '16px'
+                                        }}></div>
                         
                         <div style={{
-                            
+                            position: 'relative',
                             float: 'right',
                             color: "green",
                             width: '75px',
@@ -330,22 +339,27 @@ if(afd.getEstado<0){
                             }}>
                            valor : {valor}
                         </div>
-                        
-                        <div style={{float: 'left', padding: "7px"}}>
-                        
-                            <div><button onClick={handleC1} style={styleOn}>1</button></div>
-                            <div><button onClick={handleC2} style={styleOn}>2</button></div>
-                            <div><button onClick={handleC5} style={styleOn}>5</button></div>
                         </div>
-                        
-                        <div style={{float: 'right', padding: "7px"}}>
-                            <div><button onClick={a ? handleCA :()=>{}} style={a ? styleOn : styleOff}>a</button></div>
-                            <div><button onClick={b ? handleCB :()=>{}} style={b ? styleOn : styleOff}>b</button></div>
-                            <div><button onClick={c ? handleCC :()=>{}} style={c ? styleOn : styleOff}>c</button></div>
+                        <div style={{ position: 'absolute',
+                                      top: '50px',
+                                      right: '16px'}}>
+                                <div style={{
+                                     float: 'left',
+                                     padding: "7px"}}>
 
+                                    <div><button onClick={handleC1} style={styleOn}>1</button></div>
+                                    <div><button onClick={handleC2} style={styleOn}>2</button></div>
+                                    <div><button onClick={handleC5} style={styleOn}>5</button></div>
+                                </div>
 
+                                <div style={{ 
+                                     float: 'left',
+                                     padding: '7px'}}>
+                                    <div><button onClick={a ? handleCA :()=>{}} style={a ? styleOn : styleOff}>a</button></div>
+                                    <div><button onClick={b ? handleCB :()=>{}} style={b ? styleOn : styleOff}>b</button></div>
+                                    <div><button onClick={c ? handleCC :()=>{}} style={c ? styleOn : styleOff}>c</button></div>
+                                </div>
                         </div>
-                
                 </div>
                 
                 <div style={{
@@ -378,9 +392,11 @@ if(afd.getEstado<0){
         
                                   
     </div>
-<p>Palavra:# {p}</p>
-<p>Estado :# {est}</p>
+
     </div>)
 
 }
-
+/*
+<p>Palavra: {p}</p>
+<p>Estado : {est}</p>
+*/ 
