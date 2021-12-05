@@ -3,7 +3,7 @@ import AFN from './AFN'
 
 export function Machine(props){
     
-    let [afd, setAfd] = useState(new AFN)
+    let [afd, setAfd] = useState(new AFN())
     let [valor, setValor] = useState(0)
     let [a,setA] = useState(false)
     let [b,setB] = useState(false)
@@ -426,15 +426,18 @@ const handleCE = () =>{
 
 
         </div>
-
-        
-                                  
+            <div style={{
+                    position: 'absolute',
+                    bottom: 0,
+                   }}>
+                <p>Palavra: {p}</p>
+                <p>Estado : {est}</p>
+            </div>                      
     </div>
 
     </div>)
 
 }
 /*
-<p>Palavra: {p}</p>
-<p>Estado : {est}</p>
+
 */ 

@@ -70,11 +70,11 @@ export default class AFN {
  consumir( elemento){
 	let elementoInt
 
-	if(elemento == '5' || elemento == '2' || elemento == '1') elementoInt = parseInt(elemento+"");
-	else if(elemento == 'a') elementoInt = 6
-	else if(elemento == 'b') elementoInt = 7
-	else if(elemento == 'c') elementoInt = 8
-    /*if(elementoInt <= 5)*/if(elemento == '5' || elemento == '2' || elemento == '1') this.troco += elementoInt;
+	if(elemento === '5' || elemento === '2' || elemento === '1') elementoInt = parseInt(elemento+"");
+	else if(elemento === 'a') elementoInt = 6
+	else if(elemento === 'b') elementoInt = 7
+	else if(elemento === 'c') elementoInt = 8
+    /*if(elementoInt <= 5)*/if(elemento === '5' || elemento === '2' || elemento === '1') this.troco += elementoInt;
    // else {
    //     if (this.troco > elementoInt) this.troco -= elementoInt;
    //      }
